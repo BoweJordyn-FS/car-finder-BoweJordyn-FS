@@ -1,0 +1,73 @@
+// Variables
+$primary-color: #fff;
+$subtext-color: #d2d2d2;
+$form-panel-bg: #f2f2f2;
+$form-blue: #348fbc;
+$form-disabled: #909090;
+$selected: #212121;
+$font-med: open-sans-medium, sans-serif;
+$font-bold: open-sans-bold, sans-serif;
+
+// Global Styles
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url("/src/car-finder-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+main {
+  margin-top: 270px;
+}
+#title {
+  color: $primary-color;
+  font-family: $font-bold;
+  margin-left: 553px;
+  > h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  > p {
+    color: $subtext-color;
+    font-family: $font-med;
+  }
+}
+#display {
+  background-color: $form-panel-bg;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  height: 250px;
+  width: 600px;
+  margin-left: 550px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.form {
+  margin-top: 60px;
+}
+
+h2 {
+  font-family: $font-bold;
+  color: $form-blue;
+  margin-bottom: 10px;
+  font-size: 32px;
+  padding-right: 90px;
+}
+legend {
+  font-size: 12px;
+  margin-left: 10px;
+  font-family: $font-med;
+  color: $form-disabled;
+}
+select {
+  appearance: none;
+  background-color: $form-panel-bg;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}

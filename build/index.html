@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New ES6/SCSS Project</title>
+    <link rel="stylesheet" href="styles/index.scss" type="module" />
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <main>
+      <section id="title">
+        <h1>Find Your Dream Vehicle</h1>
+        <p>Have you been dreaming about getting a new vehicle?</p>
+        <p>Well, you're in luck.</p>
+      </section>
+      <!-- Car Display -->
+      <section id="display">
+        <!-- Year -->
+        <section>
+          <legend for="year-select">Year</legend>
+          <select id="year">
+            <option value="">Vehicle Year</option>
+          </select>
+        </section>
+
+        <!-- Make -->
+        <section>
+          <legend for="make-select">Make</legend>
+          <select id="make" disabled>
+            <option value="">Vehicle Make</option>
+          </select>
+        </section>
+
+        <!-- Model -->
+        <section>
+          <legend for="model-select">Model</legend>
+          <select id="model" disabled>
+            <option value="">Vehicle Model</option>
+          </select>
+        </section>
+      </section>
+    </main>
+    <script src="bundle.js"></script>
+    <!-- <script src="index.js" type="module" defer></script> -->
+  </body>
+</html>
