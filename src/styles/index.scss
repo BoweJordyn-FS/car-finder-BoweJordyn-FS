@@ -8,34 +8,31 @@ $selected: #212121;
 $font-med: open-sans-medium, sans-serif;
 $font-bold: open-sans-bold, sans-serif;
 
-// Placeholders for reuse
+// Placeholders
 %font-medium {
   font-family: $font-med;
 }
 %font-bold {
   font-family: $font-bold;
 }
-
 // Global Styles
 * {
   margin: 0;
   padding: 0;
 }
-
 body {
   background-image: url("/src/car-finder-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 70vh;
 }
-
 main {
   margin-top: 270px;
 }
-
-.title {
+#title {
   color: $primary-color;
   @extend %font-bold;
-  margin-left: 513px;
+  margin-left: 523px;
 
   h1 {
     font-size: 40px;
@@ -48,22 +45,20 @@ main {
   }
 }
 
-.display {
+#display {
   background-color: $form-panel-bg;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   height: 250px;
   width: 800px;
-  margin-left: 500px;
+  margin-left: 520px;
   margin-top: 25px;
   border-radius: 10px;
 }
-
 .form {
   margin-top: 60px;
 }
-
 h2 {
   @extend %font-bold;
   color: $form-blue;
@@ -78,7 +73,6 @@ legend {
   @extend %font-medium;
   color: $form-disabled;
 }
-
 select {
   appearance: none;
   background-color: $form-panel-bg;
