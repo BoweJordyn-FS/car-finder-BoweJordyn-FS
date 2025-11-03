@@ -8,60 +8,77 @@ $selected: #212121;
 $font-med: open-sans-medium, sans-serif;
 $font-bold: open-sans-bold, sans-serif;
 
+// Placeholders for reuse
+%font-medium {
+  font-family: $font-med;
+}
+%font-bold {
+  font-family: $font-bold;
+}
+
 // Global Styles
 * {
   margin: 0;
   padding: 0;
 }
+
 body {
   background-image: url("/src/car-finder-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 main {
   margin-top: 270px;
 }
-#title {
+
+.title {
   color: $primary-color;
-  font-family: $font-bold;
-  margin-left: 553px;
-  > h1 {
-    font-size: 48px;
+  @extend %font-bold;
+  margin-left: 513px;
+
+  h1 {
+    font-size: 40px;
     margin-bottom: 10px;
   }
-  > p {
+
+  p {
     color: $subtext-color;
-    font-family: $font-med;
+    @extend %font-medium;
   }
 }
-#display {
+
+.display {
   background-color: $form-panel-bg;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   height: 250px;
-  width: 600px;
-  margin-left: 550px;
-  margin-top: 10px;
+  width: 800px;
+  margin-left: 500px;
+  margin-top: 25px;
   border-radius: 10px;
 }
+
 .form {
   margin-top: 60px;
 }
 
 h2 {
-  font-family: $font-bold;
+  @extend %font-bold;
   color: $form-blue;
   margin-bottom: 10px;
   font-size: 32px;
   padding-right: 90px;
 }
+
 legend {
   font-size: 12px;
   margin-left: 10px;
-  font-family: $font-med;
+  @extend %font-medium;
   color: $form-disabled;
 }
+
 select {
   appearance: none;
   background-color: $form-panel-bg;
@@ -70,4 +87,8 @@ select {
   font-size: 16px;
   padding: 10px;
   width: 100%;
+
+  &:focus {
+    outline: 2px solid $form-blue;
+  }
 }
