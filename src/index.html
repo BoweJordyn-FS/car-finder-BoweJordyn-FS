@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New ES6/SCSS Project</title>
-</head>
-<body>
-  <script src="bundle.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New ES6/SCSS Project</title>
+    <link rel="stylesheet" href="styles/index.scss" />
+  </head>
+  <body>
+    <main>
+      <section id="title">
+        <h1>Find Your Dream Vehicle</h1>
+        <h4>Have you been dreaming about getting a new vehicle?</h4>
+        <h4>Well, you're in luck.</h4>
+      </section>
+
+      <!-- Car Finder App -->
+      <section id="finderContainer">
+        <div id="yearContainer">
+          <h3>Year</h3>
+          <label for="yearSelect">Year</label>
+          <select id="yearSelect">
+            <option value="">Select Year</option>
+          </select>
+        </div>
+        <div id="makeContainer">
+          <h3>Make</h3>
+          <label for="makeSelect">Make</label>
+          <select id="makeSelect" disabled>
+            <option value="" disabled selected>Select Make</option>
+          </select>
+        </div>
+        <div id="modelContainer">
+          <h3>Model</h3>
+          <label for="modelSelect">Model</label>
+          <select id="modelSelect" disabled>
+            <option value="" disabled selected>Select Model</option>
+          </select>
+        </div>
+      </section>
+    </main>
+    <script src="bundle.js"></script>
+    <script src="index.js" type="module" defer></script>
+  </body>
 </html>
