@@ -1,9 +1,9 @@
 // Imports your SCSS stylesheet
 import "./styles/index.scss";
-let carData = [];
+import carData from './car-dataset.json';
 
 // Fetch the car dataset
-fetch("src/car-dataset.json")
+fetch("/car-dataset.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
