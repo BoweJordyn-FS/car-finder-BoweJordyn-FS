@@ -1,10 +1,9 @@
 // Imports your SCSS stylesheet
 import "./styles/index.scss";
-
 let carData = [];
 
 // Fetch the car dataset
-fetch("./car-dataset.json")
+fetch("src/car-dataset.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -32,14 +31,19 @@ const populateOptions = (cars) => {
     option.text = yearValue;
     year.appendChild(option);
   });
+
   year.addEventListener("change", () => {
     const selectedYear = parseInt(year.value);
     const filteredCars = cars.filter((car) => car.year === selectedYear);
 
-    //make.innerHTML = "<option disabled selected>Select Make</option>";
-    //model.innerHTML = "<option disabled selected>Select Model</option>";
+    make.innerHTML = "<option disabled selected>Select Make</option>"; // UNCOMMENT this!
+    model.innerHTML = "<option disabled selected>Select Model</option>"; // UNCOMMENT this!
 
-    const makes = [...new Set(filteredCars.map((car) => car.make))].sort();
+    const makes =
+      [...new Set(filteredCars.map((car) => car.Manufacturer))]
+        .sort()
+        .charAt(0)
+        .toUpperCase() + makes.slice(1);
     makes.forEach((makeValue) => {
       const option = document.createElement("option");
       option.value = makeValue;
@@ -49,11 +53,12 @@ const populateOptions = (cars) => {
     make.disabled = false;
     model.disabled = true;
   });
+
   make.addEventListener("change", () => {
     const selectedYear = parseInt(year.value);
     const selectedMake = make.value;
     const filteredCars = cars.filter(
-      (car) => car.year === selectedYear && car.make === selectedMake
+      (car) => car.year === selectedYear && car.Manufacturer === selectedMake
     );
 
     model.innerHTML = "<option disabled selected>Select Model</option>";
@@ -67,6 +72,7 @@ const populateOptions = (cars) => {
     });
     model.disabled = false;
   });
+
   model.addEventListener("change", () => {
     const selectedCar = carData.find(
       (car) =>
