@@ -1,16 +1,30 @@
+// Variables
 $primary-header: #ffffff;
 $subtext-color: #d3d3d3;
 $form-panel-bg: #f2f2f2;
 $form-blue: #348fbc;
 $form-disabled: #909090;
 $selected-option: #212121;
-$border-style: #2121212a 1px solid;
+$border-color: #2121212a;
 
+// Mixins
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+// Reset
 * {
   margin: 0;
   padding: 0;
 }
 
+// Body
 body {
   background-image: url("../img/car-finder-bg.jpg");
   background-size: cover;
@@ -19,35 +33,36 @@ body {
   overflow: hidden;
 }
 
+// Main Section
 main {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   align-items: center;
   padding-top: 300px;
-  font: {
-    family: open sans, sans-serif;
-    size: 28px;
+  font-family: open sans, sans-serif;
+  font-size: 28px;
+}
+
+// Title Section
+#title {
+  margin-right: 410px;
+  color: $primary-header;
+
+  h1 {
+    padding-bottom: 15px;
   }
 
-  #title {
-    margin-right: 410px;
-    color: $primary-header;
-    h1 {
-      padding-bottom: 15px;
-    }
-    h4 {
-      color: $subtext-color;
-      font: {
-        size: 14px;
-        weight: 400;
-      }
-    }
-    h4:last-of-type {
+  h4 {
+    color: $subtext-color;
+    font-size: 14px;
+    font-weight: 400;
+
+    &:last-of-type {
       padding-bottom: 20px;
     }
   }
 }
-// CAR FINDER APP
+
+// Car Finder Container
 #finderContainer {
   display: flex;
   justify-content: space-around;
@@ -55,28 +70,38 @@ main {
   width: 900px;
   height: 200px;
   border-radius: 10px;
+
   div {
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-    padding-left: 50px;
+    @include flex-column;
+    padding: 50px 0 0 50px;
     width: 250px;
-    select {
-      width: 200px;
-      height: 40px;
-      &:focus {
-        color: $form-blue;
-        border: $form-blue;
-      }
-    }
+
     h3 {
       color: $form-blue;
       padding-right: 100px;
       padding-bottom: 10px;
     }
+
+    select {
+      width: 200px;
+      height: 40px;
+
+      &:focus {
+        color: $form-blue;
+        outline: none;
+        border-color: $form-blue;
+      }
+
+      &:disabled {
+        color: $form-disabled;
+        cursor: not-allowed;
+      }
+    }
   }
 }
+
+// Border Styling
 #yearContainer,
 #makeContainer {
-  border-right: $border-style;
+  border-right: 1px solid $border-color;
 }
