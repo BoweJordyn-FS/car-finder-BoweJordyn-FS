@@ -1,9 +1,10 @@
 // Imports your SCSS stylesheet
 import "./styles/index.scss";
-import carData from './car-dataset.json';
+
+const carData = [];
 
 // Fetch the car dataset
-fetch("/car-dataset.json")
+fetch("./car-dataset.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -12,7 +13,6 @@ fetch("/car-dataset.json")
   })
   .then((data) => {
     carData = data;
-    console.log("Car data loaded:", data);
     populateOptions(carData);
   })
   .catch((error) => {
@@ -41,9 +41,9 @@ const populateOptions = (cars) => {
 
     const makes =
       [...new Set(filteredCars.map((car) => car.Manufacturer))]
-        .sort()
-        .charAt(0)
-        .toUpperCase() + makes.slice(1);
+        .sort();
+
+    
     makes.forEach((makeValue) => {
       const option = document.createElement("option");
       option.value = makeValue;
